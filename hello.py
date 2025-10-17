@@ -62,13 +62,13 @@ def send_simple_message(to, subject, newUser):
     print('from: ' + str(app.config['API_FROM']), flush=True)
     print('to: ' + str(to), flush=True)
     print('subject: ' + str(app.config['FLASKY_MAIL_SUBJECT_PREFIX']) + ' ' + subject, flush=True)
-    print('text: ' + "Prontuário: PT303304X\nNome: Giovanna Karolline Menezes Ribeiro\nNovo usuário cadastrado: " + newUser, flush=True)
+    print('text: ' + "Prontuário: PT3032442 Nome: Miguel Oliveira da Silva\nNovo usuário cadastrado: " + newUser, flush=True)
 
     resposta = requests.post(app.config['API_URL'], 
                              auth=("api", app.config['API_KEY']), data={"from": app.config['API_FROM'], 
                                                                         "to": to, 
                                                                         "subject": app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + ' ' + subject, 
-                                                                        "text": "Prontuário: PT303304X\nNome: Giovanna Karolline Menezes Ribeiro\nNovo usuário cadastrado: " + newUser})
+                                                                        "text": "Prontuário: PT3032442 Nome: Miguel Oliveira da Silva Novo usuário cadastrado: " + newUser})
         
     print('Enviando mensagem (Resposta)...' + str(resposta) + ' - ' + datetime.now().strftime("%m/%d/%Y, %H:%M:%S"), flush=True)
     return resposta
@@ -113,7 +113,7 @@ def index():
             print('from: ' + str(app.config['API_FROM']), flush=True)
             print('to: ' + str([app.config['FLASKY_ADMIN'], "flaskaulasweb@zohomail.com"]), flush=True)
             print('subject: ' + str(app.config['FLASKY_MAIL_SUBJECT_PREFIX']), flush=True)
-            print('text: ' + "Prontuário: PT303304X\nNome: Giovanna Karolline Menezes Ribeiro\nNovo usuário cadastrado: " + form.name.data, flush=True)
+            print('text: ' + "Prontuário: PT3032442 Nome: Miguel Oliveira da Silva\nNovo usuário cadastrado: " + form.name.data, flush=True)
 
             if app.config['FLASKY_ADMIN'] and mandarEmail:                
                 print('Enviando mensagem...', flush=True)
